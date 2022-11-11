@@ -30,7 +30,7 @@ class Board{
     private:
         enum{POS_FREE, POS_FILLED};
         int mBoard[BOARD_WIDTH][BOARD_HEIGHT];
-        Piece *mPieces;
+        Piece *all_pieces;
         int screenHeight;
         void initBoard();
         void deleteLine(int pY);
