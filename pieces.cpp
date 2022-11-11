@@ -1,4 +1,5 @@
 #include <cstdio>
+#include "pieces.h"
 
 char all_pieces[7][4][5][5] = {
     //square
@@ -301,3 +302,15 @@ int starting_posistion[7][4][2]= {
         {-2, -3}
     }
 };
+
+int Piece::get_block_type(int piece, int rotation, int x, int y){
+    return all_pieces[piece][rotation][x][y];
+}
+
+int Piece::get_x_initial_position(int piece, int rotation){
+    return starting_posistion[piece][rotation][0];
+}
+
+int Piece::get_x_initial_position(int piece, int rotation){
+    return starting_posistion[piece][rotation][1];
+}
