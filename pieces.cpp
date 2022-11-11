@@ -1,11 +1,5 @@
 #include <cstdio>
 
-class Piece{
-    public:
-        int get_type();
-
-};
-
 char all_pieces[7][4][5][5] = {
     //square
     {
