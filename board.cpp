@@ -113,3 +113,30 @@ bool Board::IsFreeBlock(int pX, int pY){
     return false;
 }
 
+/*
+======================================
+Returns the horizontal position (in pixels) of the block given like parameter
+
+Parameters:
+
+>> pPos: Horizontal position of the block in the board
+======================================
+*/
+
+int Board::GetXPosInPixels(int pPos){
+    return ((BOARD_POSITION - (BLOCK_SIZE*(BOARD_WIDTH/2))) + (BLOCK_SIZE*pPos));
+}
+
+/*
+======================================
+Returns the vertical position (in pixels) of the block given like parameter
+
+Parameters:
+
+>> pPos: Horizontal position of the block in the board
+======================================
+*/
+
+int Board::GetYPosInPixels(int pPos){
+    return ((screenHeight - (BLOCK_SIZE*BOARD_HEIGHT))+(pPos*BLOCK_SIZE));
+}
