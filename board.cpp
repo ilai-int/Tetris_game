@@ -140,3 +140,38 @@ Parameters:
 int Board::GetYPosInPixels(int pPos){
     return ((screenHeight - (BLOCK_SIZE*BOARD_HEIGHT))+(pPos*BLOCK_SIZE));
 }
+
+/*
+======================================
+Check if the piece can be stored at this position without any collision
+Returns true if the movement is possible, false if it not possible
+
+Parameters:
+
+>> pX: Horizontal position in blocks
+>> pY: Vertical position in blocks
+>> pPiece: Piece to draw
+>> pRotation: 1 of the 4 possible rotations
+======================================
+*/
+
+bool Board::IsPossibleMovement(int pX, int pY, int pPiece, int pRotation){
+    // Checks collision with pieces already stored in the board or the board limits
+    // This is just to check the 5×5 blocks of a piece with the appropriate area in the board
+    for (int i=pX;i< pX+PIECE_BLOCKS; i++){
+        for (int j=pY;j<pY+PIECE_BLOCKS;j++){
+            // Check if the piece is outside the limits of the board
+            if ( i<0 || i > BOARD_WIDTH - 1 || j > BOARD_HEIGHT - 1){
+                if (all_pieces->get_block_type(pPiece, pRotation, i-pX, j-pY)>0){
+                    return false;
+                }
+            } 
+            // Check if the piece have collisioned with a block already stored in the map
+            if (all_pieces->get_block_type(pPiece, pRotation, i-pX, j-pY)>0 && !IsFreeBlock(i,j)){
+                return false;
+            }
+        }
+    }
+    // No collision
+    return true;
+}
