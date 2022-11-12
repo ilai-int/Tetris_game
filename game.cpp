@@ -139,7 +139,7 @@ void Game::DrawBoard ()
             mIO->DrawRectangle ( mX1 + i * BLOCK_SIZE,
             mY + j * BLOCK_SIZE,
             (mX1 + i * BLOCK_SIZE) + BLOCK_SIZE - 1,
-            (mY + j * BLOCK_SIZE) + BLOCK_SIZE 1 1,
+            (mY + j * BLOCK_SIZE) + BLOCK_SIZE - 1,
             RED);
             }
         }   
